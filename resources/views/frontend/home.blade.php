@@ -220,7 +220,7 @@
           <div class="col-lg-3 col-md-4 col-sm-6 mb-4" >
 
             <!--Card-->
-            <div class="card" >
+            <div class="card product_data" >
 
               <!--Card image-->
               <a href="{{ url('product/'.$data->id) }}">
@@ -237,29 +237,16 @@
 
               <div>
 
-                @if (!Auth::guest())
 
-                <form class="" action="{{ url('cart') }}" method="POST">
-                    @csrf
-                  <!-- Default input -->
 
-                  <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                  <input type="hidden" name="item_id" value="{{ $data->id }}">
-                  <input type="hidden" name="quantity" value="1">
-                  <button class="btn btn-success  mt-2 p" type="submit">Add to cart
+                <input type="hidden" value="1" class="qty-input form-control" aria-label="Search">
+                <input type="hidden" class="item_id" value="{{ $data->id }}">
+
+                  <button class="add-to-cart-btn btn btn-success  mt-2 p" type="submit">Add to cart
                     <i class="fas fa-shopping-cart ml-1"></i>
                   </button>
 
-                </form>
 
-                @else
-
-                    <a href="{{ route('login') }}" class="btn btn-success">
-                        Add to cart
-                    <i class="fas fa-shopping-cart ml-1"></i>
-                    </a>
-
-                @endif
 
                 </div>
 

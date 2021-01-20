@@ -6,8 +6,9 @@
   <main class="mt-5 pt-4">
     <div class="container dark-grey-text mt-5">
 
-      <!--Grid row-->
-      <div class="row wow fadeIn">
+
+        <!--Grid row-->
+      <div class="product_data row wow fadeIn">
 
         <!--Grid column-->
         <div class="col-md-6 mb-4">
@@ -37,9 +38,9 @@
 
             <p class="lead">
               <span class="mr-1">
-                <del>{{ $data->offer_price }}/=</del>
+                <del>{{ $data->price }}/=</del>
               </span>
-              <span>{{ $data->price }}/=</span>
+              <span>{{ $data->offer_price }}/=</span>
             </p>
 
             <h4 class="font-weight-bold blue-text">
@@ -52,18 +53,17 @@
               sint voluptatibus!
               Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
 
-            <form class="d-flex justify-content-left" action="{{ url('cart') }}" method="POST">
-                @csrf
-              <!-- Default input -->
+            <div class="d-flex justify-content-left">
 
-              <input type="number" value="1" name="quantity" aria-label="Search" class="form-control" style="width: 100px">
-              <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-              <input type="hidden" name="item_id" value="{{ $data->id }}">
-              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+            <input type="number" value="1" class="qty-input form-control" aria-label="Search" style="width: 100px">
+            <input type="hidden" class="item_id" value="{{ $data->id }}">
+
+            <button class="add-to-cart-btn btn btn-primary btn-md my-0 p">Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
 
-            </form>
+            </div>
+
 
           </div>
           <!--Content-->
@@ -73,6 +73,9 @@
 
       </div>
       <!--Grid row-->
+
+
+
 
       <hr>
 

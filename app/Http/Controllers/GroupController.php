@@ -400,28 +400,4 @@ class GroupController extends Controller
 
     }
 
-    public function cart(Request $req)
-    {
-        $cart = new Cart();
-
-        $cart->user_id = $req->input('user_id');
-        $cart->item_id = $req->input('item_id');
-        $cart->quantity = $req->input('quantity');
-
-        $cart->save();
-
-        return redirect()->back();
-
-    }
-
-    public function cartview()
-    {
-        return view('frontend.cart');
-    }
-
-    function remove_cart($id){
-        Cart::destroy($id);
-        return redirect()->back()->with('status','Cart Item has Removed Successfully!');
-    }
-
 }

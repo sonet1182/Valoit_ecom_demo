@@ -38,19 +38,15 @@
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
-            <a class="nav-link waves-effect" data-toggle="modal" data-target="#exampleModal">
+            <a class="nav-link waves-effect" href="/newcart">
 
-            @if (!Auth::guest())
-                @php
-                    $cart = App\Models\Cart::where('user_id','=',Auth::user()->id)->count();
-                @endphp
-                <span class="badge red z-depth-1 mr-1"> {{ $cart }} </span>
-            @else
-                <span class="badge red z-depth-1 mr-1"> 0 </span>
-            @endif
-
-              <i class="fas fa-shopping-cart"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                <span class="clearfix">
+                    <i class="fas fa-shopping-cart"></i>
+                    Cart
+                    <span class="basket-item-count">
+                        <span class="badge badge-pill red"> 0 </span>
+                    </span>
+                </span>
             </a>
 
           </li>

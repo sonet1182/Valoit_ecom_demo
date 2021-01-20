@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
-use App\Models\Order;
+
 
 class UserController extends Controller
 {
@@ -42,15 +42,17 @@ class UserController extends Controller
 
     }
 
-    function checkout(Request $req)
+    function checkout()
     {
-        $order = new Order();
+        //$order = new Order();
 
-        $order->user_id = $req->input('user_id');
-        $order->total = $req->input('total');
+        //$order->user_id = $req->input('user_id');
+        //$order->total = $req->input('total');
 
-        $order->save();
+        //$order->save();
 
-        return view('frontend.checkout')->with('order',$order);
+        return view('frontend.checkout');
     }
+
+
 }

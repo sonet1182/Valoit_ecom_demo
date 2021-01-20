@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Material Design Bootstrap</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -190,6 +192,9 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+<!--Alertify CSS -->
+<link rel="stylesheet" href="{{ asset('assets/css/alertify.min.css') }}"/>
+
 
 
 
@@ -222,6 +227,12 @@
     new WOW().init();
 
   </script>
+
+  <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="{{ asset('assets/js/alertify.min.js') }}"></script>
+
 
 
 

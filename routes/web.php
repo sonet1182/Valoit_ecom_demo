@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,16 +106,14 @@ Route::group(['middleware' => ['auth','isUser']], function () {
     //User Profile Controlling
     Route::get('/profile', [UserController::class, 'profile']);
 
-    Route::post('cart',[GroupController::class, 'cart']);
-
-    Route::get('cartview',[GroupController::class, 'cartview']);
-
-    Route::get('remove_cart/{id}',[GroupController::class,'remove_cart']);
-
     Route::get('/address', [UserController::class, 'address']);
-    Route::post('/edit_address', [UserController::class, 'edit_address']);
+    Route::post('edit_address', [UserController::class, 'edit_address']);
 
     Route::post('checkout', [UserController::class, 'checkout']);
+
+    Route::post('order', [OrderController::class, 'user_order']);
+
+    Route::get('order_success', [OrderController::class, 'order_success']);
 
 
 });
@@ -122,3 +122,11 @@ Route::group(['middleware' => ['auth','isUser']], function () {
 Route::get('show_sub/{id}',[GroupController::class,'show_sub']);
 Route::get('show_sub/items/{id}',[GroupController::class,'show_items']);
 Route::get('product/{id}',[GroupController::class,'product']);
+
+
+Route::post('add-to-cart',[CartController::class, 'add_to_cart']);
+Route::get('/newcart',[CartController::class, 'index']);
+Route::get('/load-cart-data',[CartController::class,'cartloadbyajax']);
+Route::post('update-to-cart', [CartController::class,'updatetocart']);
+Route::delete('delete-from-cart', [CartController::class,'deletefromcart']);
+Route::get('clear-cart', [CartController::class,'clearcart']);

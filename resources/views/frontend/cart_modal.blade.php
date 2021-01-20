@@ -57,10 +57,14 @@
 
       </div>
 
-      <div class="modal-footer">
-        <p>
+      <div class="card py-auto">
+        <p class="text-center">
             Total = {{ $total }} BDT
         </p>
+      </div>
+
+      <div class="modal-footer">
+
 
         <form action="{{ url('checkout') }}" method="POST">
             @csrf
