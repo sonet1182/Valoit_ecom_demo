@@ -9,9 +9,6 @@
         <p>Thank You! Your Order has been received.</p>
         <div class="card py-2 bg-light">
 
-        @php
-            $order = App\Models\Order::where('user_id','=',Auth::user()->id)->get();
-        @endphp
 
         <div class="row">
             <div class="col ml-5"><strong>Order Id</strong></div>

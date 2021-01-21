@@ -109,7 +109,7 @@ Route::group(['middleware' => ['auth','isUser']], function () {
     Route::get('/address', [UserController::class, 'address']);
     Route::post('edit_address', [UserController::class, 'edit_address']);
 
-    Route::post('checkout', [UserController::class, 'checkout']);
+    Route::get('checkout', [UserController::class, 'checkout']);
 
     Route::post('order', [OrderController::class, 'user_order']);
 

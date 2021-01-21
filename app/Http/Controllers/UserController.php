@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 
 
 class UserController extends Controller
@@ -44,14 +45,10 @@ class UserController extends Controller
 
     function checkout()
     {
-        //$order = new Order();
+        $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+        $cart_data = json_decode($cookie_data, true);
 
-        //$order->user_id = $req->input('user_id');
-        //$order->total = $req->input('total');
-
-        //$order->save();
-
-        return view('frontend.checkout');
+        return view('frontend.checkout')->with('cart_data', $cart_data);
     }
 
 

@@ -142,7 +142,7 @@
                         <div class="col-md-12 mycard py-5 text-center">
                             <div class="mycards">
                                 <h4>Your cart is currently empty.</h4>
-                                <a href="{{ url('collections') }}" class="btn btn-upper btn-primary outer-left-xs mt-5">Continue Shopping</a>
+                                <a href="{{ url('/') }}" class="btn btn-upper btn-primary outer-left-xs mt-5">Continue Shopping</a>
                             </div>
                         </div>
                     </div>

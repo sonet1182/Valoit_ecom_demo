@@ -397,7 +397,6 @@ class GroupController extends Controller
         $product = item::find($id);
 
         return view('frontend.product')->with('data',$product);
-
     }
 
 }

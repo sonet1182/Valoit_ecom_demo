@@ -27,38 +27,26 @@
                     </div>
                 </div>
 
-                @php $total ='0' @endphp
+            @if(isset($cart_data))
+                @if(Cookie::get('shopping_cart'))
+                    @php $total="0" @endphp
 
-        @php
-            $cart = App\Models\Cart::where('user_id','=',Auth::user()->id)->get();
-        @endphp
-
-        @foreach ($cart as $data)
+        @foreach ($cart_data as $data)
 
         <div class="row my-2">
             <div class="col">
-                <strong>{{ $data->item->name }}</strong>
+                <strong>{{ $data['item_name'] }}</strong>
             </div>
             <div class="col">
-                <span>{{ $data->quantity }} x {{ number_format($data->item->price) }} BDT</span>
+                <span>{{ $data['item_quantity'] }} x {{ number_format($data['item_price']) }} BDT</span>
             </div>
             <div class="col">
-                @php
-                        $a = $data->quantity;
-                        $b = $data->item->price;
-                        $c = $a*$b;
-                    @endphp
-                    <span>{{ number_format($c) }} BDT</span>
+                    <span>{{ number_format($data['item_quantity'] * $data['item_price'], 0) }} BDT</span>
             </div>
         </div>
 
 
-
-        @php
-        $total = $total + $c;
-        @endphp
-
-
+        @php $total = $total + ($data["item_quantity"] * $data["item_price"]) @endphp
 
         @endforeach
 
@@ -76,6 +64,8 @@
             </div>
         </div>
 
+        @endif
+@endif
         <form action="{{ ('order') }}" method="POST">
             @csrf
         <label for="place"><strong>Order:</strong></label><br>
